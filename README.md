@@ -1,2 +1,2 @@
-# LaTeX
-This repo contains some Tex fails I wrote in LaTex
+# $\latex$
+This repo contains some Tex fails I wrote in $\latex$.
