@@ -1,0 +1,58 @@
+\documentclass[11pt]{beamer}
+\usetheme{EastLansing}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage{tikz,tikz-cd}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{biblatex}
+\author[K. Sreeman Reddy]{\href{http://iamsreeman.github.io/}{\textbf{Kasi Reddy Sreeman Reddy}}\linebreak\text{2nd year physics student}\linebreak\text{\href{http://iamsreeman.github.io/MA109}{http://iamsreeman.github.io/MA109}}}
+\title{MA 109 Tutorial 1}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+\logo{\includegraphics[width=.1\textwidth]{logo}} 
+\institute[]{IIT Bombay} 
+\date{18-Nov-2020}
+%\subject{}
+\BeforeBeginEnvironment{definition}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{definition}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+\BeforeBeginEnvironment{theorem}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{theorem}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+%---------------------------------------------------------
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+%---------------------------------------------------------
+
+
+\section{Introduction}
+Hello! I am K. Sreeman Reddy, an 2nd undergraduate student at physics department. Welcome to the 1st tutorial of MA 109. This is going to be a \textbf{demo class}. You all have learned Calculus during your 11th and 12th. The main difference between that calculus and this is \textbf{rigor }. By rigorous we mean it should follow from definitions and axioms.\\
+Historically in the beginning Newton and Leibniz have developed calculus. Their definitions were somewhat vague and not rigorous. So it was all later modified. For example what does it mean to say "\textit{the limiting slope of line joining to points when they are very close is called derivative.}"? This is how it was developed in the beginning, but what does "\textit{limiting}" mean? Sure we can define what limiting means by some vague definition like it is going very near to that value. But these types of vague statements give many problems. We can't always believe in common sense, as many times we can find unintuitive truths in mathematics. 
+\begin{frame}
+Later Karl Weierstrass gave a rigorous definition of limit-
+\begin{definition}
+Let ${\displaystyle f}$ be a real-valued function defined on a subset $ {\displaystyle D}$ of the real numbers. Let ${\displaystyle c}$ be a limit point of ${\displaystyle D}$ and let ${\displaystyle L}$ be a real number. We say that
+
+    $${\displaystyle \lim _{x\to c}f(x)=L}$$
+if
+$$\forall \epsilon>0,\exists\delta>0,\forall x\in D,0<|x-c|<\delta\Rightarrow |f(x)-L|<\epsilon$$
+Since this time it is online, professor said you probably will have objective exams except the final exam. In objective it is tough to give questions based on rigor, so objective questions will be similar to JEE questions. \textbf{Also next week I have exams and instead of me another PhD student will take the tutorial class. From next week you have to try the questions before coming to the tutorial.}
+\end{definition}
+\end{frame} 
+
+\end{document}
