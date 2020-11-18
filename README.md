@@ -1,2 +1,2 @@
 # LaTeX
-This repo contains some Tex fails I wrote in LaTeX.
+This repo contains some Tex files I wrote in LaTeX.
