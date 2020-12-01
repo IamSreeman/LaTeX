@@ -1,0 +1,125 @@
+\documentclass[11pt]{beamer}
+\usetheme{EastLansing}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage{tikz,tikz-cd}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{biblatex}
+\author[K. Sreeman Reddy]{\href{http://iamsreeman.github.io/}{\textbf{Kasi Reddy Sreeman Reddy}}\linebreak\text{2nd year physics student}\linebreak\text{\href{http://iamsreeman.github.io/MA109}{http://iamsreeman.github.io/MA109}}}
+\title{MA 109 Tutorial 2}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+\logo{\includegraphics[width=.1\textwidth]{logo}} 
+\institute[]{IIT Bombay} 
+\date{02-Dec-2020}
+%\subject{}
+\BeforeBeginEnvironment{definition}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{definition}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+\BeforeBeginEnvironment{theorem}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{theorem}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+%---------------------------------------------------------
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+%---------------------------------------------------------
+
+
+\section{Sheet 1}
+\begin{frame}
+\frametitle{Q)13. (ii)}
+$f(x) = xsin\dfrac{1}{x}$; if $x \neq 0$ and $f(0) = 0$
+$\forall x\neq 0$ $x$,$sin\dfrac{1}{x}$ are continuous at $x$. So their product is also continuous. At $x=0$ $x$ is continuous, but $sin\dfrac{1}{x}$ is not continuous.
+We also know that $|f(x)|\leq |x| $ since $|sin(\dfrac{1}{x})|\leq 1$.\\
+Let $L=0$ we have to show that ,$\forall \epsilon >0 \exists \delta >0$ such that
+$$|x-0|<\delta \Rightarrow |f(x)-0|<\epsilon $$
+We can observe that $\delta=\epsilon$ works $\forall \epsilon$ since
+$$|x-0|<\epsilon \Rightarrow |f(x)-L|=|xsin(\dfrac{1}{x})|\leq |x|<\epsilon $$
+$$\underset{x \to 0}{\lim}f(x)=f(0)=0$$
+So it is continuous at $x=0$. So it is $\forall x\in \mathbb{R}$. You can also do this question by using Sandwich theorem since $-|x|\leq xsin(\dfrac{1}{x})\leq |x|$
+\end{frame}
+\begin{frame}
+\frametitle{Q)15}
+$f(x) = x^2sin\dfrac{1}{x}$; if $x \neq 0$ and $f(0) = 0$
+\begin{align*}
+f'(0)&=\underset{h \to 0}{\lim}\dfrac{f(0+h)-f(0)}{h}\\
+&=\underset{h \to 0}{\lim}\dfrac{h^2sin(\dfrac{1}{h})}{h}\\
+&=\underset{h \to 0}{\lim}hsin(\dfrac{1}{h})\\
+&=0
+\end{align*}
+$\forall x\neq 0$ $f'(x)=2xsin(\frac{1}{x})-cos(\frac{1}{x})$;$f'(0)=0$. Let {$x_n$}={$\frac{1}{2n\pi}$}, $y_n$={$\dfrac{1}{(2n+0.5)\pi}$}.$\underset{n \to \inf}{\lim}f(x_n)\neq \underset{n \to \inf}{\lim}f(y_n)$. So $f'(x)$ is discontinuous at $x=0$.
+\end{frame}
+\begin{frame}
+\frametitle{Q)18}
+$y=0\Rightarrow f(x)=f(x)f(0)$ $\forall x$. Assume that $f(x)$ is not identically equal to zero. Then $\exists x$ such that $f(x)\neq 0\Rightarrow f(0)=1$.
+\begin{align*}
+\dfrac{f(x+h)-f(x)}{h}&=\dfrac{f(x)f(h)-f(x)f(0)}{h}\\
+f'(x)=\underset{h \to 0}{\lim}\dfrac{f(x+h)-f(x)}{h}&=\left(\underset{h \to 0}{\lim}\dfrac{f(h)-f(0)}{h}\right) f(x)\\
+\end{align*}
+So if $f'(0)$ exists, $f'(x)$ also exists $\forall x \in \mathbb{R}$.
+$$\Rightarrow f'(x)=f'(0)f(x)$$
+Even if $f(x)=0 \forall x$, $f'(x)=f'(0)f(x)$ is still true.
+\end{frame}
+\section{Sheet 1 optional}
+\begin{frame}
+\frametitle{Q)7}
+$(i)\Rightarrow (ii)$\\
+Let $\delta>0$ be such that $(c-\delta,c+\delta \subseteq (a,b)$. And let $\alpha =f'(c)$, then 
+$$\epsilon_1(h)=\dfrac{f(c+h)-f(c)-\alpha h}{h}\text{ if }h\neq 0$$
+and $\epsilon_1(0)=0$. Check that $\underset{h \to 0}{\lim}\epsilon_1(h)=f'(c)-\alpha=0$. So this function satisfies all the properties we need.\\
+$(ii)\Rightarrow (iii)$\\
+\begin{align*}
+\underset{h \to 0}{\lim}\dfrac{|f(c+h)-f(c)-\alpha h|}{|h|}&=\underset{h \to 0}{\lim}|\epsilon_1(h)|\\
+&=0\\
+\end{align*}
+Here I used the fact $\underset{x \to c}{\lim}f(x)=0 \Leftrightarrow\underset{x \to c}{\lim}|f(x)=0|$(it is a consequence of $||f(x)|-L|=|f(x)-L|$ for $L=0$ )
+\end{frame}
+\begin{frame}
+$(iii) \Rightarrow (i)$
+\begin{align*}
+\underset{h \to 0}{\lim}\dfrac{|f(c+h)-f(c)-\alpha h|}{|h|}&=0\\
+\Rightarrow \underset{h \to 0}{\lim}\dfrac{f(c+h)-f(c)-\alpha h}{h}&=0\\
+\Rightarrow \underset{h \to 0}{\lim}\dfrac{f(c+h)-f(c)-}{h}&=\alpha\\
+\Rightarrow f'(c)=\alpha
+\end{align*}
+So $f(x)$ is differentiable at $x=c$
+So all (i), (ii) and (iii) are equivalent.
+\end{frame}
+\begin{frame}
+\frametitle{Q)10}
+Let $g:[0,1]\rightarrow \mathbb{R}$ be defined as $g(x)=f(x)-x$. A point is fixed if $f(x)=x$ at the point. If $f(0)=0$ or $f(1)=1$, clearly the function has a fixed point. If $f(0)\neq 0$ and $f(1)\neq 1$ then $g(0)=f(0)>0$ and $g(1)=f(1)-1<0$. So by IVT(Intermediate Value Theorem) we can say that $\exists c\in (0,1)$ such that $g(c)=0\Rightarrow f(c)=c$.
+\end{frame}
+\section{Sheet 2}
+\begin{frame}
+\frametitle{Q)3}
+By IVT(Intermediate Value Theorem) we can say that atleast one such an $x_0$ exists such that $f(x_0)=0$. Let $x_1\neq x_0$ be such that $f(x_1)=0$, then by Rolle's theorem we can say that $\exists c\in (x_0,x_1)$ such that $f'(c)=0\Rightarrow$ contradiction(since $f'(x)\neq 0 \forall x\in (a,b)$). So there is a unique $x\in (a,b)$ such that $f(x)=0$.
+\end{frame}
+\begin{frame}
+\frametitle{Q)5}
+If $a=b$ then $|sin(a)-sin(b)|\leq |a-b|$ holds true.
+If $a\neq b$, assume without loss of generality that $a<b$(as the case with $a>b$ will be similar)\\
+From MVT(Mean Value Theorem) we can say that $\exists c\in (a,b)$ such that
+$$$$
+\begin{align*}
+f'(c)&=\dfrac{f(b)-f(a)}{b-a}\\
+\Rightarrow cos(c)&=\dfrac{sin(b)-sin(a)}{b-a}\\
+\Rightarrow |\dfrac{sin(a)-sin(b)}{a-b}|&=|cos(c)|\leq 1\\
+\Rightarrow |sin(a)-sin(b)|&\leq |a-b|
+\end{align*}
+\end{frame}
+\end{document}
