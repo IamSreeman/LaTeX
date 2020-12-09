@@ -97,7 +97,12 @@ f^{n}(x)=\frac{1}{2}(i(-1)^{n}(n-1)!)((x-i)^{-n}-(x+i)^{-n})
 This form can be obtained by using $\frac{1}{1+x^2}=\frac{1}{2i}(\frac{1}{x-i}-\frac{1}{x+i})$ and differentiating. Although since this course considers only $\mathbb{R}$ the induction method is better.
 \end{frame}
 \begin{frame}
-We can also do this using integration also like $f'=\frac{1}{1+x^2}$ express it as a geometric series and integrate term by term. But why we can integrate term by term is beyond the syllabus of this course. It will be taught in a MA 403 topic called sequences and series of functions. If you are interested read about \href{https://en.wikipedia.org/wiki/Uniform_convergence}{Uniform convergence}. \textbf{But for this course you can integrate the series without justification.} Here $x_0=0$, so
+We can also do this using integration also like $f'=\frac{1}{1+x^2}$ express it as a geometric series and integrate term by term.We get the Taylore series as
+\begin{align*}
+f(x)&=\int (1-x^2+x^4+\cdots )dx \\
+f(x)&=x-\frac{x^3}{3}+\frac{x^5}{5}\cdots 
+\end{align*}
+But why we can integrate term by term is beyond the syllabus of this course. It will be taught in a MA 403 topic called sequences and series of functions. If you are interested read about \href{https://en.wikipedia.org/wiki/Uniform_convergence}{Uniform convergence}. \textbf{But for this course you can integrate the series without justification.} Here $x_0=0$, so
 $$R_n(x)=\frac{f^{(n+1)}(c_x)(x-0)^{n+1}}{(n+1)!}$$
 \end{frame}
 \begin{frame}
@@ -107,8 +112,8 @@ You can write the function as $f(x)=(x-1)^3$. Clearly it is the Taylor series. Y
 \end{frame}
 \begin{frame}
 \frametitle{Q)4}
-Let us denote the partial sums of of the given series by $s_m(x)$. We would like to show that $|s_m(x) - s_n(x)|$ can be made arbitrarily small whenever m and n are sufficiently large. Without loss of generality assume that $m>n$. We see that
-$$|s_m(x) -s_n(x)|=|\sum_{k=n+1}^{m}\frac{x^k}{k!}|\leq |\frac{x^n}{n!}|\left(\frac{1}{2}+\frac{1}{4}\cdots +\frac{1}{2^{m-n}}\right)\leq 2\frac{|x^2|}{n!}$$.
+Let us denote the partial sums of of the given series by $s_m(x)=\sum_{k=0}^{m}\frac{x^k}{k!}$. We would like to show that $|s_m(x) - s_n(x)|$ can be made arbitrarily small whenever m and n are sufficiently large. Without loss of generality assume that $m>n$. We see that
+$$|s_m(x) -s_n(x)|=|\sum_{k=n+1}^{m}\frac{x^k}{k!}|\leq |\frac{x^n}{n!}|\left(\frac{1}{2}+\frac{1}{4}\cdots +\frac{1}{2^{m-n}}\right)\leq 2\frac{|x^n|}{n!}$$.
 
 If $N$ is made sufficiently large and $n > N$, the last expression can be made as small as we please.
 \end{frame}
@@ -120,7 +125,7 @@ The taylor series for $e^x=\sum_{r=0}^{\infty}\frac{x^n}{n!}$. So,
 \int_{a}^{b} \frac{e^x}{x}dx&=\int_{a}^{b} \left( \sum_{r=0}^{\infty}\frac{x^{n-1}}{n!}dx\right)\\
 \int_{a}^{b} \frac{e^x}{x}dx&=\sum_{r=0}^{\infty}\left(\int_{a}^{b} \frac{x^{n-1}}{n!}dx\right)\\
 \int \frac{e^x}{x}dx&=\sum_{r=0}^{\infty}\left(\int\frac{x^{n-1}}{n!}dx\right)\\
-\int \frac{e^x}{x}dx&=\sum_{r=0}^{\infty}\left(\int\frac{x^{n}}{(n)n!}dx\right)+c
+\int \frac{e^x}{x}dx&=ln(x)+\sum_{r=1}^{\infty}\left(\frac{x^{n}}{(n)n!}dx\right)+c
 \end{align*}
 Here the interchange of $\sum$ and $\int$ are assumed.
 \end{frame}
