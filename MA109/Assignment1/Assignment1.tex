@@ -1,0 +1,56 @@
+\documentclass[11pt]{beamer}
+\usetheme{EastLansing}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage{tikz,tikz-cd}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{biblatex}
+\author[K. Sreeman Reddy]{\href{http://iamsreeman.github.io/}{\textbf{Kasi Reddy Sreeman Reddy}}\linebreak\text{2nd year physics student}\linebreak\text{\href{http://iamsreeman.github.io/MA109}{http://iamsreeman.github.io/MA109}}}
+\title{MA 109 Assignment 1}
+\date{}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{}
+\institute[]{IIT Bombay}
+%\subject{}
+\BeforeBeginEnvironment{definition}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{definition}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+\BeforeBeginEnvironment{theorem}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{theorem}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+%---------------------------------------------------------
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+%---------------------------------------------------------
+\fontsize{10}{12}\selectfont
+\begin{frame}
+Q) Evaluate the limit
+$\underset{n \to \infty}{\lim}\dfrac{an+1}{bn+2}$
+and justify your answer using the $\epsilon-N$ definition of the limit.\\
+Sol. 
+Evaluation: $\lim_{n \to \infty}\dfrac{an+1}{bn+2}=\lim_{n \to \infty}\dfrac{a+\frac{1}{n}}{b+\frac{2}{n}}=\dfrac{a}{b}$\\
+Justification: We need to show that $\forall \epsilon>0$ $\exists N_{\epsilon}\in \mathbb{N}$ such that $n>N_{\epsilon}\Rightarrow$ $\left\lvert\dfrac{an+1}{bn+2}-\dfrac{a}{b}  \right\rvert<\epsilon$.
+For a given $\epsilon$ fix $N_{\epsilon}$ such that $N_{\epsilon}>\dfrac{|2a-b|}{b^2\epsilon}$. Now $\forall n>N_{\epsilon}$
+\begin{align*}
+\dfrac{|2a-b|}{b^2\epsilon}&<N<n\\
+\Rightarrow \dfrac{|2a-b|}{b^2n}&<\epsilon\\
+\Rightarrow \dfrac{|2a-b|}{b(bn+2)}&<\epsilon\\
+\Rightarrow \mid\dfrac{an+1}{bn+2}-\dfrac{a}{b} \mid&<\epsilon
+\end{align*}
+Hence $\underset{n \to \infty}{\lim}\dfrac{an+1}{bn+2}=\dfrac{a}{b}$.(One way to fix $N_{\epsilon}$ is $N_{\epsilon}=\left[\dfrac{|2a-b|}{b^2\epsilon}\right]+1$,$[.]$ is G.I.F)
+\end{frame}
+\end{document}
