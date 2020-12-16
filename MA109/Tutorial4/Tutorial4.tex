@@ -1,0 +1,97 @@
+\documentclass[11pt]{beamer}
+\usetheme{EastLansing}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage{tikz,tikz-cd}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{biblatex}
+\author[K. Sreeman Reddy]{\href{http://iamsreeman.github.io/}{\textbf{Kasi Reddy Sreeman Reddy}}\linebreak\text{2nd year physics student}\linebreak\text{\href{http://iamsreeman.github.io/MA109}{http://iamsreeman.github.io/MA109}}}
+\title{MA 109 Tutorial 4}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+\logo{\includegraphics[width=.1\textwidth]{logo}} 
+\institute[]{IIT Bombay} 
+\date{16-Dec-2020}
+%\subject{}
+\BeforeBeginEnvironment{definition}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{definition}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+\BeforeBeginEnvironment{theorem}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{theorem}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+%---------------------------------------------------------
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+%---------------------------------------------------------
+
+
+\section{Sheet 4}
+\begin{frame}
+\frametitle{Q)2}
+(a)We know that $L(P)\leq \int_{a}^{b}f(x)dx \leq U(P)$,
+\begin{align*}
+L(P)&=\sum_{i=1}^{n} m_i(x_i-x_{i-1})\\
+\Rightarrow L(P)&\geq 0\\
+\Rightarrow \int_{a}^{b}f(x)dx&\geq 0
+\end{align*}
+Since $m_i\geq 0$  $\forall i$. Further, if $f$ is continuous let $F(x)$ be defined by $F(x)=\int_{a}^{x}f(t)dt$, then from FTC
+$$F'(x)=f(x)\geq 0\forall x\in [a,b]$$
+Now we know that $F'(x)\geq 0$, $F(b)=F(a)=0\Rightarrow$ $F(x)=0\forall x\in[a,b]\Rightarrow f(x)=0\forall x\in[a,b]$
+\end{frame}
+\begin{frame}
+\frametitle{Q)2}
+(b) Take $f(x)=0$ if $x\neq \frac{a+b}{2}$, $f(\frac{a+b}{2})=1$. Then this function is Riemann integrable and
+$$\int_{a}^{b}f(x)dx =0 $$
+\end{frame}
+\begin{frame}
+\frametitle{Q)3}
+(ii) For the function $f(x)=\frac{1}{1+x^2}$, $a=0$,$b=1$ and for the partition $P=\{\frac{1}{n},\frac{2}{n},\cdots,\frac{n-1}{n} \}$ this is a Riemann sum. As $n\to\infty$ $||P||\to 0$. Since $f(x)=\frac{1}{1+x^2}$ is continuous $\Rightarrow$ it is Riemann integrable. So,
+\begin{align*}
+lim_{n\to\infty} \sum_{i=1}^{n}\dfrac{n^2}{i^2+n^2}\dfrac{1}{n}&=\int_{0}^{1}\frac{1}{1+x^2}dx\\
+&=\frac{\pi}{4}
+\end{align*}
+\\
+(iv) Similar to the above this becomes
+\begin{align*}
+lim_{n\to\infty} s_n&=\int_{0}^{1}cos(\pi x)dx\\
+&=\frac{sin(\pi)-sin(0)}{\pi}=0
+\end{align*}
+\end{frame}
+\begin{frame}
+\frametitle{Q)4b)}
+Let $F(x) = \int_a^x f(t)dt$ then $F'(x) = f(x)$: Now observe that
+\begin{align*}
+\int_{u(x)}^{v(x)}f(t)dt&=\int_{a}^{v(x)}f(t)dt-\int_{a}^{u(x)}f(t)dt\\
+\Rightarrow&=F(v(x))-F(u(x))\\
+\Rightarrow\frac{d}{dx}\int_{u(x)}^{v(x)}f(t)dt&=f(v(x))v'(x)-f(u(x))u'(x)
+\end{align*}
+(i)$F'(x)=2cos(4x^2)$
+\\
+(ii)$F'(x)=2xcos(x^2)$
+\end{frame}
+\begin{frame}
+\frametitle{Q)6}
+We know that $sin (\lambda (x-t))=sin(\lambda x)cos(\lambda t)-cos(\lambda x) sin(\lambda t)$. Now in the integrand, take trems in $x$
+outside the integral, evaluate $g'(x)$; $g''(x)$, and simplify to show LHS=RHS; from the
+expressions for $g(x)$ and $g'(x)$ it should be clear that $g(0)=g'(0)=0$.
+\begin{align*}
+g(x)&=\frac{1}{\lambda}\int_0^xf(t)(sin(\lambda x)cos(\lambda t)-cos(\lambda x) sin(\lambda t))dt\\
+&=\frac{1}{\lambda}\left(sin(\lambda x)\int_0^xf(t)cos(\lambda t)-cos(\lambda x)\int_0^xf(t)sin(\lambda t) \right)
+\end{align*}
+You can also do this question using \href{https://en.wikipedia.org/wiki/Leibniz_integral_rule}{Leibniz integral rule}.
+\end{frame}
+\end{document}
