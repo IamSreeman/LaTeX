@@ -1,0 +1,114 @@
+\documentclass[11pt]{beamer}
+\usetheme{EastLansing}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage{tikz,tikz-cd}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{biblatex}
+\author[K. Sreeman Reddy]{\href{http://iamsreeman.github.io/}{\textbf{Kasi Reddy Sreeman Reddy}}\linebreak\text{2nd year physics student}\linebreak\text{\href{http://iamsreeman.github.io/MA109}{http://iamsreeman.github.io/MA109}}}
+\title{MA 109 Tutorial 5}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+\logo{\includegraphics[width=.1\textwidth]{logo}} 
+\institute[]{IIT Bombay} 
+\date{23-Dec-2020}
+%\subject{}
+\BeforeBeginEnvironment{definition}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{definition}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+\BeforeBeginEnvironment{theorem}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{theorem}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+%---------------------------------------------------------
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+%---------------------------------------------------------
+
+
+\section{Sheet 5}
+\begin{frame}
+\frametitle{Q)2}
+If $f:D\in\mathbb{R}^n\to\mathbb{R}$ be a function. Then the main difference between a level curve and a contour line is that level curve is a subset of $\mathbb{R}^n$ but contour line is a subset of $\mathbb{R}^{n+1}$.\\
+(ii) For $c<0$ the level curve and contour lines are null set. For $c=0$ the level curve is the singleton set $\{(0,0)\}$ and contour line is the singleton set $\{(0,0,0)\}$. For $c>0$ the level curve is the circle with center $(0,0)$, radius $\sqrt{c}$ and lies in $\mathbb{R}^2$ and contour line is the circle with center $(0,0,c)$, radius $\sqrt{c}$, parallel to the $x-y$ plane and lies in $\mathbb{R}^3$.\\
+(iii)Here if $c\neq 0$ then the level curve is a hyperbola in $\mathbb{R}^2$ and the contour is a hyperbola which is parallel to the $x-y$ plane in $\mathbb{R}^3$. If $c=0$ instead of parabola it will be a pair of straight lines.
+\end{frame}
+\begin{frame}
+\frametitle{Q)4}
+(i) We know that $(x_n,y_n)\to(x_0,y_0)\Leftrightarrow x_n\to x_0$ and $y_n\to y_0 $. Let the given function be $h(x,y)=f(x)+g(y)$. For any arbitrary sequence $(x_n,y_n)\to(x_0,y_0)$
+\begin{align*}
+\underset{n\to\infty}{\lim} h(x_n,y_n)&=\underset{x_n\to x_0}{\lim}f(x_n)\pm \underset{y_n\to y_0}{\lim}g(y_n)\\
+\Rightarrow \underset{(x_n,y_n)\to(x_0,y_0)}{\lim} h(x,y)&=f(x_0)\pm g(y_0)\\
+\end{align*}
+(ii) Similar to above we can take any arbitrary sequence $(x_n,y_n)\to(x_0,y_0)$, and let $h(x_n,y_n)=f(x_n)g(y_n)$ and apply limit and it will also be continuous.
+\end{frame}
+\begin{frame}
+(iii) and (iv) Observe that $max\{f(x),g(y)\}=\frac{f(x)+g(y)}{2}+\left|\frac{f(x)-g(y)}{2}\right|$ and $min\{f(x),g(y)\}=\frac{f(x)+g(y)}{2}-\left|\frac{f(x)-g(y)}{2}\right|$. For any continuous function $f(x,y)$, $|f(x,y)|$ is also continuous. Because if $f(x_0,y_0)>0$ or $<0$ then it is clearly continuous at that point. If $f(x_0,y_0)=0$ then also it is continuous at that point because for $-f(x_0,y_0)\leq |f(x_0,y_0)|\leq f(x_0,y_0)$ applying sandwich theorem we can say that it is continuous at this point. Now using this point and (i) we can say that $max\{f(x),g(y)\}=\frac{f(x)+g(y)}{2}+\left|\frac{f(x)-g(y)}{2}\right|$ and $min\{f(x),g(y)\}=\frac{f(x)+g(y)}{2}-\left|\frac{f(x)-g(y)}{2}\right|$ are continuous.
+\end{frame}
+\begin{frame}
+\frametitle{Q)6(ii)}
+\begin{align*}
+f_x(0,0)&=\underset{h\to0}{\lim}\dfrac{f(h,0)-f(0,0)}{h}\\
+&=\underset{h\to0}{\lim}\dfrac{\frac{sin^2(h)}{|h|}}{h}
+\end{align*}
+the right hand limit is 1 and left hand limit is -1. So it doesn't exist. We get the exact same limit for $f_y(0,0)$. So it also doesn't exist.
+\end{frame}
+\begin{frame}
+\frametitle{Q)8}
+We know that $(x_n,y_n)\to(x_0,y_0)\Leftrightarrow x_n\to x_0 and y_n\to y_0 $, we also have seen in previous tutorials that $\underset{x\to 0}{\lim}xsin(\frac{1}{x})=0$ using sandwich theorem. By using both we can say that it is continuous. Let $\textbf{v}=(v_x,v_y)$ be a unit vector. For $\textbf{x}=(0,0)$ and if $v_x,v_y\neq 0$
+\begin{align*}
+\nabla_{\textbf{v}}f(\textbf{x})&=\underset{h\to0}{\lim}\dfrac{f(\textbf{x}+h\textbf{v})-f(\textbf{x})}{h}\\
+\Rightarrow \nabla_{\textbf{v}}f(0,0)&=\underset{h\to 0}{\lim}\dfrac{hv_xsin(\frac{1}{hv_x})+hv_ysin(\frac{1}{hv_y})}{h}
+\end{align*}
+this limit doesn't exist as we can get different values by taking different sequences. Similarly $f_x$,$f_y$ also don't exist. So, none of the partial derivatives exist.
+\end{frame}
+\begin{frame}
+\frametitle{Q)10}
+$\underset{(x,y)\to(x_0,y_0)}{\lim} f(x,y)=L$ iff $\forall \epsilon>0 \exists \delta >0$ such that
+\begin{align*}
+(x,y)\in D_f,0<\sqrt{(x-x_0)^2+(y-y_0)^2}<\delta\Rightarrow |f(x,y)-L|<\epsilon
+\end{align*}
+Here for $L=0$ $\delta=\epsilon$ works $\forall \epsilon>0$ as $|f(x,y)-L|=\sqrt{x^2+y^2}$. So it is continuous at $(0,0)$. Let $\textbf{v}=(v_x,v_y)$ be a unit vector. For $\textbf{x}=(0,0)$ and if $v_y\neq 0$
+\begin{align*}
+\nabla_{\textbf{v}}f(\textbf{x})&=\underset{h\to0}{\lim}\dfrac{f(\textbf{x}+h\textbf{v})-f(\textbf{x})}{h}\\
+\Rightarrow \nabla_{\textbf{v}}f(0,0)&=\underset{h\to 0}{\lim}\dfrac{hv_y\sqrt{h^2(1)}}{h|hv_y|}=\underset{h\to 0}{\lim}\dfrac{hv_y|h|}{h|h||v_y|}=\dfrac{v_y}{|v_y|}
+\end{align*}
+If $v_y=0 \Rightarrow v_x=\pm 1\Rightarrow\nabla_{\textbf{v}}f(\textbf{x})=\frac{0-0}{h}=0$
+\end{frame}
+\begin{frame}
+From above we get $f_x(0,0)=0,f_y(0,0)=1$ if it differentiable at $(0,0)$ then $\exists \alpha ,\beta$ such that
+\begin{align*}
+\underset{(h,k)\to(0,0)}{\lim} \dfrac{f(x_0+h,y_0+k)-f(x_0,y_0)-\alpha h-\beta k}{\sqrt{h^2+k^2}}=0
+\end{align*}
+and $\alpha,\beta$ coincides with the $x,y$ directional derivatives. Here
+\begin{align*}
+\underset{(h,k)\to(0,0)}{\lim} \dfrac{\frac{k}{|k|}\sqrt{h^2+k^2}-k}{\sqrt{h^2+k^2}}=0
+\end{align*}
+It should be 0 along all sequences converging to (0,0). Take a sequence along the line $x=y$ approaching from the 1st quadrant. The limit will \\be $\frac{\sqrt{2}-1}{\sqrt{2}-1}$, so it is not differentiable.
+\end{frame}
+\begin{frame}
+\frametitle{Some important points}
+\begin{enumerate}
+  \item Differentiable at $(x_0,y_0)$.
+  \item $\nabla_{\textbf{v}}f(\textbf{x})=(f_x(x_0,y_0),f_y(x_0,y_0))\cdot \textbf{v}$.
+  \item The directional derivative exists for all $\textbf{v}$.
+  \item $f_x$ and $f_y$ exist.
+  \item $f$ is continuous $(x_0,y_0)$
+\end{enumerate}
+$$(i)\Rightarrow (ii)\Rightarrow (iii)\Rightarrow (iv)\nRightarrow (v)$$
+$$(v)\nRightarrow (iv)\nRightarrow (iii)\nRightarrow (ii)\nRightarrow (i)$$
+\end{frame}
+\end{document}
