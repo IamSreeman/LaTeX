@@ -103,12 +103,26 @@ It should be 0 along all sequences converging to (0,0). Take a sequence along th
 \frametitle{Some important points}
 \begin{enumerate}
   \item Differentiable at $(x_0,y_0)$.
-  \item $\nabla_{\textbf{v}}f(\textbf{x})=(f_x(x_0,y_0),f_y(x_0,y_0))\cdot \textbf{v}$.
+  \item $\nabla_{\textbf{v}}f(\textbf{x})=(f_x(x_0,y_0),f_y(x_0,y_0))\cdot \textbf{v}$ is true for all unit vectors $\textbf{v}$.
   \item The directional derivative exists for all $\textbf{v}$.
   \item $f_x$ and $f_y$ exist.
   \item $f$ is continuous $(x_0,y_0)$
 \end{enumerate}
-$$(i)\Rightarrow (ii)\Rightarrow (iii)\Rightarrow (iv)\nRightarrow (v)$$
+$$(i)\Rightarrow (ii)\Rightarrow (iii)\Rightarrow (iv)\nRightarrow (v),(i)\Rightarrow (v),(iii)\nRightarrow (v)$$
 $$(v)\nRightarrow (iv)\nRightarrow (iii)\nRightarrow (ii)\nRightarrow (i)$$
+The previous question(Q)10) has already proved that $(iii)\nRightarrow (i)$ and $(iii)\nRightarrow (ii)$. The following function $f:\mathbb{R}^2\to\mathbb{R}$ defined as
+\[f(x,y)= \begin{cases} 
+      \dfrac{x^2y}{x^4+y^2} & (x,y)\neq (0,0) \\
+      0 & (x,y)= (0,0)
+   \end{cases}
+\]
+\end{frame}
+\begin{frame}
+is not continuous at $(0,0)$ (approach the origin along $y=x$ and $y=x^2$ this gives two different values, so discontinuous). Since (i) $\Rightarrow$ (v) it is also not differentiable. But all partial derivatives exist and are given by (as always $\textbf{v}=(v_x,v_y)$ is a unit vector)
+$$\nabla_{\textbf{v}}f(x,y)= \begin{cases} 
+      \dfrac{v_x^2}{v_y} & v_y\neq 0\\
+      0 & v_y= 0
+   \end{cases}$$
+This example proves that $(iii)\nRightarrow (ii)$, $(iii)\nRightarrow (i)$ and $(iv)\nRightarrow (v)$ and even $(iii)\nRightarrow(v)$.
 \end{frame}
 \end{document}
