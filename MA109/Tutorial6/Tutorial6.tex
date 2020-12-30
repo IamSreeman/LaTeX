@@ -1,0 +1,113 @@
+\documentclass[11pt]{beamer}
+\usetheme{EastLansing}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage{tikz,tikz-cd}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{biblatex}
+\author[K. Sreeman Reddy]{\href{http://iamsreeman.github.io/}{\textbf{Kasi Reddy Sreeman Reddy}}\linebreak\text{2nd year physics student}\linebreak\text{\href{http://iamsreeman.github.io/MA109}{http://iamsreeman.github.io/MA109}}}
+\title{MA 109 Tutorial 6}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+\logo{\includegraphics[width=.1\textwidth]{logo}} 
+\institute[]{IIT Bombay} 
+\date{30-Dec-2020}
+%\subject{}
+\BeforeBeginEnvironment{definition}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{definition}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+\BeforeBeginEnvironment{theorem}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{theorem}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+%---------------------------------------------------------
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+%---------------------------------------------------------
+
+
+\section{Sheet 6}
+\begin{frame}
+\frametitle{Q)2}
+The given function $f(x,y)=x^2+sin(xy)$ is a differentiable function. We know that for a differentiable function
+$$\nabla_{\textbf{v}}f(\textbf{x})=(f_x(x_0,y_0),f_y(x_0,y_0))\cdot \textbf{v}$$
+for all unit vectors $\textbf{v}$. 
+$$f_x(x_0,y_0)=2x_0+y_0cos(x_0y_0)\Rightarrow f_x(1,0)=2$$
+$$f_y(x_0,y_0)=x_0cos(x_0y_0)\Rightarrow f_y(1,0)=1$$
+without loss of generality we can take $\textbf{v}=(cos\theta,sin\theta)$.
+\begin{align*}
+\nabla_{\textbf{v}}f(\textbf{x})=(2,1)\cdot (cos\theta,sin\theta)&=1\\
+\implies 2cos\theta+sin\theta&=1
+\end{align*}
+\end{frame}
+\begin{frame}
+By defining $\alpha=sin^{-1}(\frac{1}{\sqrt{5}})$ we get
+\begin{align*}
+ \sqrt{5}(\frac{2}{\sqrt{5}}cos\theta+\frac{1}{\sqrt{5}}sin\theta)&=1\\
+ \implies cos(\theta-\alpha)&=\frac{1}{\sqrt{5}}\\
+ \implies \theta-\alpha&=cos^{-1}(\frac{1}{\sqrt{5}}) \text{ or } 2\pi-cos^{-1}(\frac{1}{\sqrt{5}})\\
+ \implies \theta-\alpha&=\frac{\pi}{2}-\alpha \text{ or } \frac{3\pi}{2}+\alpha \\
+  \implies \theta&=\frac{\pi}{2} \text{ or } \frac{3\pi}{2}+2\alpha \\
+  \textbf{v}&=(0,1)\text{ or }(\frac{4}{5},-\frac{3}{5})
+\end{align*}
+\end{frame}
+\begin{frame}
+\frametitle{Q)4}
+$\textbf{u}=(\frac{2}{3},\frac{2}{3},\frac{1}{3})$. We can also see that $f_x(x_0,y_0,z_0)=3$,$f_y(x_0,y_0,z_0)=-5$ and $f_z(x_0,y_0,z_0)=2$
+\begin{align*}
+\nabla_{\textbf{u}}f(\textbf{x})&=(f_x(x_0,y_0,z_0),f_y(x_0,y_0,z_0),f_z(x_0,y_0,z_0))\cdot \textbf{u}\\
+\Rightarrow\nabla_{\textbf{u}}f(2,2,1)&=(3,-5,2)\cdot (\frac{2}{3},\frac{2}{3},\frac{1}{3})\\
+\Rightarrow\nabla_{\textbf{u}}f(2,2,1)&=-\frac{2}{3}
+\end{align*}
+\end{frame}
+\begin{frame}
+\frametitle{Q)5}
+\begin{align*}
+sin(x+y)+sin(y+z)&=1\\
+\Rightarrow cos(x+y)+cos(y+z)\dfrac{\partial z}{\partial x}&=0\\
+\Rightarrow \dfrac{\partial z}{\partial x}&=-\dfrac{cos(x+y)}{cos(y+z)}\text{ since $cos(y+z)\neq 0$}
+\end{align*}
+By partial differetiating the initial equation by $y$ we get
+\begin{align*}
+cos(x+y)+cos(y+z)\left(1+\dfrac{\partial z}{\partial y}\right)&=0
+\end{align*}
+By partial differetiating the above equation by $x$ we get
+\end{frame}
+\begin{frame}
+\begin{align*}
+-sin(x+y)-sin(y+z)\left(1+\frac{\partial z}{\partial y} \right)\frac{\partial z}{\partial x}+cos(y+z)\dfrac{\partial^2 z}{\partial x\partial y} &=0
+\end{align*}
+By substituting the values of $\frac{\partial z}{\partial x}$ and $\frac{\partial z}{\partial y}$ we get
+$$\dfrac{\partial^2 z}{\partial x\partial y}=\dfrac{sin(x+y)}{cos(y+z)}+tan(y+z)\dfrac{cos^2(x+y)}{cos^2(y+z)}$$
+\end{frame}
+\begin{frame}
+\frametitle{Q)8}
+Here we can use second derivative test or discriminant test.\\
+For the (i) part we can apply the test at all the critical points.\\
+For the (ii) part the test fails at the critical point $(0,0)$ as the discriminant will be 0. But if we fix $y=0$, we can see that $f(x,0)=x^3$ and we also know that $g(x)=x^3$ is strictly increasing at $x=0$. We can conclude that $(0,0)$ is a saddle point. 
+\end{frame}
+\begin{frame}
+\frametitle{Q)9}
+If you write $g(x,y)=-f(x,y)=(4x-x^2)(cos y)$ in the given domain $3\leq4x-x^2\leq 4$ and $\frac{1}{\sqrt{2}}\leq cosy\leq 1$. For minimum of $g(x,y)$(which will be negative of maximum of $f(x,y)$) we should take both minimum values and for maximum of $g(x,y)$(which will be negative of minimum of $f(x,y)$) both maximum values.\\ 
+Global maximum of f(x,y) is $-\dfrac{3}{\sqrt{2}}$\\
+Global minimum of f(x,y) is $-4$\\
+We can also do this with the second derivative test and observing the boundaries.
+\end{frame}
+\begin{frame}
+\frametitle{}
+All the best, not just for the MA 109 final exam (which is on 6th January) but for all other exams also. Be careful and don't do any silly mistakes.
+\end{frame}
+\end{document}
