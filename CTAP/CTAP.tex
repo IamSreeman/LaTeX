@@ -1,0 +1,214 @@
+\documentclass[11pt]{beamer}
+\usetheme{EastLansing}
+\usecolortheme{default}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts, amsthm, mathtools}
+\usepackage{tikz,tikz-cd}
+\usepackage{braket}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\author[K. Sreeman Reddy]{\href{http://iamsreeman.github.io/}{\textbf{Kasi Reddy Sreeman Reddy}}\linebreak\text{Undergraduate student}\linebreak\textit{Project supervised by {\href{https://www.phy.iitb.ac.in/en/employee-profile/vikram-rentala}{\normalfont Prof Vikram Rentala}}}}
+\title{Category theory
+applications in physics}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{}
+\institute[]{IIT Bombay} 
+\date{Oct 2020} 
+%\subject{}
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+\BeforeBeginEnvironment{definition}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{definition}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+\BeforeBeginEnvironment{theorem}{
+    \setbeamercolor{block title}{use=example text,fg=white,bg=example text.fg!75!black}
+    \setbeamercolor{block body}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+}
+\AfterEndEnvironment{theorem}{
+        \setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+        \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+}
+%---------------------------------------------------------
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+%---------------------------------------------------------
+
+
+\section{Category theory}
+\begin{frame}
+
+\frametitle{What is Category theory?What are it's uses?}
+Informally, category theory is a general theory of functions. Samuel Eilenberg and Saunders Mac Lane formulated the concepts of categories from 1942–45 in their study of algebraic topology, with the goal of understanding the processes that preserve mathematical structure. It may also be used as an axiomatic foundation for mathematics, as an alternative to set theory.\\
+\textbf{Applications:} As we shall see a certain type of categories called \textbf{monoidal categories} are very useful in physics. The category \textbf{FdHilb} is useful in Quantum Mechanics and QFT and the category \textbf{nCob} is useful in General Relativity.
+\end{frame}
+
+\begin{frame}
+\frametitle{Introduction}
+\begin{definition}
+\fontsize{10}{12}\selectfont
+A category \textbf{C} consists of:
+\begin{itemize}
+    \item Objects(or nodes): A, B, C, . . . (the class of objects is denoted by \(|{\textbf{C}}|\) or ob(\textbf{C}))
+    \item Morphisms (or arrows or maps): f, g, h, . . .(the set of morphisms from A to B is denoted by \textbf{C}(A,B) or hom$_{\textbf{C}}(A,B)$ )
+    \item For each morphism f, there are given objects called \textit{domain} and \textit{codomain} and denoted by \textit{dom}(f),\textit{cod}(f). If $A=\textit{dom}(f)$, $B=\textit{cod}(f)$ then we write $f:A\rightarrow B$ or $f \in \textbf{C}(A,B)$ or \begin{tikzcd}[ampersand replacement=\&]
+    A \arrow[r, "f"] \& B
+    \end{tikzcd}
+    \item $\forall f:A\rightarrow B$ \& $g:B\rightarrow C$ $\exists g \circ f:A\rightarrow C$ called a \textit{composite}  of f and g.
+    \item For each object A, there is given an arrow $1_A : A \rightarrow A$ called the identity arrow of A.
+\end{itemize}
+and it satisfies 
+\begin{itemize}
+    \item \textbf{Associativity}: $h \circ (g \circ f) = (h \circ g) \circ f$  $\forall 
+f:A\rightarrow B, g:B\rightarrow C,h:C\rightarrow D$.
+    \item \textbf{Unit}: $f \circ 1_A = f = 1_B \circ f \forall f : A \rightarrow B$
+\end{itemize}
+
+\end{definition}
+\end{frame}
+\begin{frame}{Examples}
+The set containing one object and one morphism is a trivial example. Another example is the category \textbf{Set}, containing all sets as objects and all functions between them as morphisms. Since functions satisfy associativity and unit properties. Some other examples-\\
+\textbf{Rel}: which has all sets as objects and all relations, which essentially are subsets of the Cartesian product of 2 sets, as morphisms between them.\\
+\textbf{Mon}: which has all so-called monoids, which essentially are groups without inverses, as
+objects and all monoid morphisms as morphisms between them.\\
+\textbf{Cat}: which has all categories as objects and all so-called functors(defined in next slide), which essentially are maps between categories, as morphisms between them.\\
+\textbf{FdHilb}: which has all finite-dimensional Hilbert spaces for objects and the linear transformations between them as morphisms. 
+\end{frame}
+\begin{frame}{Functors}
+\begin{definition}
+A functor $F : \textbf{C} \rightarrow \textbf{D}$ between categories \textbf{C} and \textbf{D} is a mapping that of objects to objects and arrows to arrows, in such a way that
+\begin{itemize}
+    \item $F(f : A \rightarrow B) = F(f) : F(A) \rightarrow F(B)$  $\forall f \in$  hom(\textbf{C})
+    \item $F(1_A) = 1_{F(A)}$ $\forall A\in $ \(|{\textbf{C}}|\)
+    \item $F(g \circ f) = F(g) \circ F(f)$  $\forall f: A\rightarrow B\text{ and }g: B\rightarrow C \in$ hom(\textbf{C})
+\end{itemize}
+\end{definition}
+It can be graphically represented as-\\
+\begin{tikzcd}[ampersand replacement=\&]
+A \arrow[rd,"g\circ f"] \arrow[r, "f"] \& B \arrow[d,"g"] \& \\
+\& C 
+\end{tikzcd}$\xrightarrow[]{\text{F}}$
+\begin{tikzcd}[ampersand replacement=\&]
+F(A) \arrow[rd,"F(g\circ f)"] \arrow[r, "F(f)"] \& F(B) \arrow[d,"F(g)"] \& \\
+\& F(C) 
+\end{tikzcd}
+\end{frame}
+\begin{frame}{}
+    \begin{definition}A strict monoidal category is a category C which
+moreover comes with additional structure provided by the associative operation $\otimes$ (called the monoidal product) and a unit
+object I such that
+\begin{enumerate}
+    \item for any $A, B, C$ $\in |\textbf{C}|$, $A\otimes(B\otimes C)=(A\otimes B)\otimes C$ and $I\otimes A=A=A\otimes I$
+    \item for any objects $A,B,C,D \in |\textbf{C}|$ there exists an operation
+    $$-\otimes-:\textbf{C}(A,B)\times\textbf{C}(C,D)\rightarrow \textbf{C}(A\otimes C,B\otimes D)::(f,g)\mapsto f\otimes g$$
+    which is associative and has $\textit{id}_I$ as unit morphism.
+    \item for any morphisms $f, g, h, k \in \textbf{C}$ of appropriate type we have $(g\circ f)\otimes (k\circ h)=(g\otimes k)\circ (f\otimes h) $
+    \item for any objects $A, B \in |\textbf{C}|$ we have $\textit{id}_A\otimes\textit{id}_B=\textit{id}_{A\otimes B} $
+\end{enumerate}
+\end{definition}
+\end{frame}
+%---------------------------------------------------------
+
+\section{Categorical Axiomatization of Physical systems}
+
+%---------------------------------------------------------
+%Highlighting text
+\begin{frame}
+
+
+\frametitle{Real world categories}
+These categories have physical systems as objects and processes relevant therein as morphisms. \textbf{PhysProc} is the category where all physical systems as objects and all physical processes which turns a physical system into another physical system as morphisms. \textbf{CQOpp} is the category where objects are all classical and quantum systems, and, morphisms are operations thereon. \textbf{PhysProc} and \textbf{QuantOpp} are examples of categories that are strict symmetric monoidal category.
+    \begin{definition}
+    The opposite category or dual category $C^{op}$ of a given category $C$ is formed by reversing the morphisms, i.e. interchanging the source and target of each morphism. Doing the reversal twice yields the original category.
+    \end{definition}
+\end{frame}
+\begin{frame}{Strict dagger monoidal category}
+    \begin{definition}
+    A strict dagger monoidal category $C$ is a strict monoidal category equipped with an involutive identity-on-objects contravariant functor
+    $$\dagger:\textbf{C}^{op}\rightarrow \textbf{C} $$
+    which is such that,
+    \begin{enumerate}
+        \item for all $A \in |\textbf{C}|$ we have $A^\dagger = A$
+        \item for all morphisms $f$ we have $f^{\dagger\dagger} = f$, and,
+        \item his functor preserves the monoidal product
+        $$(f\otimes g)^{\dagger}=f^\dagger\otimes g^\dagger $$
+
+    \end{enumerate}
+    \end{definition}
+\end{frame}
+\section{No-cloning in Categorical Quantum
+Mechanics}
+
+\begin{frame}
+\frametitle{No-cloning theorem}
+It is impossible to create an independent and identical copy of an arbitrary unknown quantum state.\\
+\textbf{Proof:} Assume that we can build a cloning machine. We want the machine to take an input state $\ket{\psi}$, plus a second particle in state $\ket{X}$,
+and spit out both particles in the state $\ket{\psi}$. That is we need to find a linear operator(since all operators must be self-adjoint and linear in quantum mechanics) $\hat{O}$ which does $\ket{\psi}\ket{X}\rightarrow \ket{\psi}\ket{\psi}$. Now since this $\hat{O}$ works for all $\ket{\psi}$, let $\ket{\psi_1}$, $\ket{\psi_2}$ be 2 wave functions and they can be copied with this machine. Now take $\ket{\psi}=\alpha\ket{\psi_1}+\beta\ket{\psi_2}$ and apply the operator on $\ket{\psi}\ket{X}$.
+\begin{align*}
+    \hat{O}\ket{\psi}\ket{X}&=\ket{\psi}\ket{\psi}\\
+    \hat{O}([\alpha\ket{\psi_1}+\beta\ket{\psi_2}]\ket{X})&=(\alpha\ket{\psi_1}+\beta\ket{\psi_2}(\alpha\ket{\psi_1}+\beta\ket{\psi_2})\\
+    \alpha\ket{\psi_1}\ket{\psi_1}+\beta\ket{\psi_2}\ket{\psi_2}&=\alpha^2\ket{\psi_1}\ket{\psi_1}+\beta^2\ket{\psi_2}\ket{\psi_2}+\alpha\beta(\ket{\psi_1}\ket{\psi_2}+\ket{\psi_2}\ket{\psi_1})
+\end{align*}
+\textbf{Contradiction}. So such a machine cannot exist if quantum mechanics is correct. Though perfect quantum cloning is not possible, it is possible to perform imperfect cloning.
+\end{frame}
+\begin{frame}
+\frametitle{No-deleting theorem}
+Let ${\displaystyle |\psi \rangle }$ be an unknown quantum state in some Hilbert space (and let other states have their usual meaning). Then, there is no linear isometric transformation such that $ {\displaystyle |\psi \rangle _{A}|\psi \rangle _{B}|A\rangle _{C}\rightarrow |\psi \rangle _{A}|0\rangle _{B}|A'\rangle _{C}}$, with the final state $\ket{A'}_C$ being independent of ${\displaystyle |\psi \rangle }$. (Otherwise it contains some information about $\ket{\psi}$)\\
+\textbf{Proof:} Assume that we can build a deleting machine. Let the $\hat{O}$ be the operator and assume that it works for the following 2 cases ${\displaystyle |0\rangle _{A}|0\rangle _{B}|A\rangle _{C}\rightarrow |0\rangle _{A}|0\rangle _{B}|A_{0}\rangle _{C}}$, $|1\rangle _{A}|1\rangle _{B}|A\rangle _{C}\rightarrow |1\rangle _{A}|0\rangle _{B}|A_{1}\rangle _{C}$. Now let $\ket{\psi}=\alpha\ket{0}+\beta\ket{1}$
+\begin{align*}
+    \hat{O}\ket{\psi}_A\ket{\psi}_B\ket{A}_C&=\ket{\psi}_A\ket{0}_B\ket{A'}_C\\
+    \hat{O}([\alpha\ket{0}_A+\beta\ket{1}_A][\alpha\ket{0}_B+\beta\ket{1}_B]\ket{A}_C) &=[\alpha\ket{0}_A+\beta\ket{1}_A]\ket{0}_B\ket{A'}_C\\
+\Rightarrow \alpha\ket{A_0}_C+\beta\ket{A_1}_C &=\ket{A'}_C
+\end{align*}
+the above equation if always true violates the assumption that the change in state of the system is independent of $\ket{\psi}$. \textbf{Contradiction}. So such a machine cannot exist.
+\end{frame}
+\begin{frame}{Categorical no-cloning}
+    We now prove no-cloning theorem using category theory, let $\{\ket{i}\}_i$ be the basis for each Hilbert space $\mathcal{H}\in |\textbf{FdHilb}|$. We can then consider
+    $$\{\Delta_{\mathcal{H}}:\mathcal{H}\mapsto\mathcal{H} \otimes  \mathcal{H}::\ket{i}\mapsto\ket{i}\otimes\ket{i}|\mathcal{H}\in |\textbf{FdHilb}|\}$$
+    But now the corresponding diagram\\
+\begin{tikzcd}[ampersand replacement=\&]
+\mathbb{C} \arrow[d,"1\mapsto1\otimes 1"] \arrow[r, "1\mapsto\ket{0}+\ket{1}"] \&[8em] \mathbb{C}\oplus\mathbb{C} \arrow[d,"\ket{0}\mapsto\ket{0}\otimes\ket{0} \ket{1}\mapsto\ket{1}\otimes\ket{1}"] \\
+ \mathbb{C}\simeq\mathbb{C}\otimes\mathbb{C} \arrow[r, "1\otimes1\mapsto(\ket{0}+\ket{1})\otimes(\ket{0}+\ket{1})"]\& (\mathbb{C}\oplus\mathbb{C})\otimes (\mathbb{C}\oplus\mathbb{C})
+\end{tikzcd}\\
+fails to commute, since via one path we obtain the (unnormalized) Bell-state $1\mapsto\ket{0}\otimes\ket{0}+\ket{1}\otimes\ket{1}$ while via the other path we obtain an (unnormalized) disentangled state $1\mapsto(\ket{0}+\ket{1})\otimes(\ket{0}+\ket{1})$. Thus, the fact that FdHilb is compact has a as a consequence that no natural diagonal can
+be defined which in turn implies that that we cannot copy quantum states.
+\end{frame}
+\begin{frame}{}
+    The no-cloning theorem applies to all dagger compact categories: there is no universal cloning morphism for any non-trivial category of this kind. No-deleting theorem is actually a \textbf{time-reversed dual} of the no-cloning theorem. The dual of a statement is formed by reversing arrows and compositions.
+    
+    Duality is the observation that a statement $\sigma$ is true for some category $C$ if and only if $\sigma^{op}$ is true for $C^{op}$.
+\end{frame}
+\begin{frame}{Conservation of quantum information}
+    Combining the No-cloning theorem, No-deleting theorem and another no-go theorem which is not discussed called No-hiding theorem we get a new conservation law, the conservation of quantum information. This law is also related to Black hole information paradox. Hawking in 1974 showed that after considering quantum effects black holes radiate energy by a process now called \textbf{Hawking Radiation}. But his approach violated information conservation. Many physicists like Susskind and Preskill have argued against it as they believed conservation of information is a fundamental law. Another thing is Hawking used Quantum field theory in curved space-time to obtain his results which may not give the complete picture (for which a quantum gravity theory is needed). Recent work done by some physicists showed that it is possible to emit Hawking radiation without violating conservation of quantum information. But it still hasn't been completely solved.
+\end{frame}
+\begin{frame}{Bibiligraphy}
+    \begin{thebibliography}{9}
+\bibitem{latexcompanion} 
+Marjanovic, M. (2017). 
+\textit{Construction of Physical Models from Category Theory}. 
+Master Thesis, University of Gothenburg\\
+\texttt{\href{http://physics.gu.se/~tfkhj/MastersThesis/Construction_of_Physical_Models_from_Category_Theory.pdf}{URL}}
+\bibitem{latexcompanion} 
+Weinberg, S. (2015). 
+\textit{Lectures on Quantum Mechanics(2nd ed.)}. 
+Cambridge: Cambridge University Press. \texttt{\href{https://doi.org/10.1017/CBO9781316276105}{doi:10.1017/CBO9781316276105}}
+
+\end{thebibliography}
+\end{frame}
+\end{document}
